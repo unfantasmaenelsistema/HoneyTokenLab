@@ -1,0 +1,6 @@
+{
+  "name": "HoneyToken Deception Lab",
+  "description": "Generador de Honeytokens y trampas de engaño (DOCX, XLSX, PDF, URL, Credenciales) con alertas automáticas por correo electrónico y telemetría de intrusión en tiempo real.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

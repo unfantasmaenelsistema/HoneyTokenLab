@@ -1,0 +1,241 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="100%" stop-color="#0b0f19"/>
+    </linearGradient>
+    <linearGradient id="panelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#030712"/>
+    </linearGradient>
+    <linearGradient id="alertGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0.0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="680" fill="url(#bg)"/>
+
+  <!-- Top Window Bar (Mac-like preview chrome) -->
+  <rect width="1200" height="38" fill="#090d16" stroke="#1e293b" stroke-width="1"/>
+  <circle cx="20" cy="19" r="6" fill="#ef4444"/>
+  <circle cx="38" cy="19" r="6" fill="#eab308"/>
+  <circle cx="56" cy="19" r="6" fill="#22c55e"/>
+  <rect x="360" y="8" width="480" height="22" rx="4" fill="#020617" stroke="#1e293b" stroke-width="1"/>
+  <text x="600" y="23" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">https://honeytoken.unfantasmaenelsistema.com/dashboard — Radar Activo</text>
+
+  <!-- Navbar / Header inside app -->
+  <rect x="0" y="38" width="1200" height="54" fill="#020617" stroke="#1e293b" stroke-width="1"/>
+  <!-- Ghost icon placeholder -->
+  <rect x="24" y="47" width="36" height="36" rx="8" fill="#1e293b"/>
+  <text x="42" y="70" fill="#f43f5e" font-family="system-ui, sans-serif" font-size="18" text-anchor="middle">👻</text>
+  <text x="70" y="62" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="15" font-weight="700">HoneyToken <tspan fill="#f43f5e">Deception Lab</tspan></text>
+  <text x="70" y="77" fill="#64748b" font-family="system-ui, sans-serif" font-size="11">por Un Fantasma en el Sistema</text>
+
+  <!-- Live Pulse Indicator in Header -->
+  <rect x="880" y="50" width="130" height="28" rx="14" fill="#052e16" stroke="#10b981" stroke-width="1"/>
+  <circle cx="896" cy="64" r="4" fill="#22c55e"/>
+  <text x="906" y="68" fill="#86efac" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">RADAR ACTIVO</text>
+
+  <!-- Action Buttons -->
+  <rect x="1025" y="50" width="150" height="28" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="1100" y="68" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11" font-weight="600" text-anchor="middle">📑 Exportar Informe PDF</text>
+
+  <!-- Main Content 2-Column Grid -->
+  <!-- LEFT COLUMN: Generator & Token List (width: 720) -->
+  <!-- Token Generator Panel -->
+  <rect x="24" y="105" width="720" height="230" rx="10" fill="url(#panelGrad)" stroke="#1e293b" stroke-width="1"/>
+  <text x="44" y="132" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Desplegar Nuevo Honeytoken</text>
+  <text x="44" y="150" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">Genera cebos que no alertan al usuario legítimo pero delatan al intruso de inmediato</text>
+
+  <!-- Token type buttons grid -->
+  <g transform="translate(44, 165)">
+    <!-- Word -->
+    <rect width="90" height="55" rx="6" fill="#020617" stroke="#f43f5e" stroke-width="1.5"/>
+    <text x="45" y="24" fill="#38bdf8" font-size="16" text-anchor="middle">📄</text>
+    <text x="45" y="44" fill="#f8fafc" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" text-anchor="middle">Word .DOCX</text>
+
+    <!-- Excel -->
+    <rect x="100" width="90" height="55" rx="6" fill="#020617" stroke="#1e293b"/>
+    <text x="145" y="24" fill="#34d399" font-size="16" text-anchor="middle">📊</text>
+    <text x="145" y="44" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">Excel .XLSX</text>
+
+    <!-- PDF -->
+    <rect x="200" width="90" height="55" rx="6" fill="#020617" stroke="#1e293b"/>
+    <text x="245" y="24" fill="#f43f5e" font-size="16" text-anchor="middle">📕</text>
+    <text x="245" y="44" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">Adobe .PDF</text>
+
+    <!-- URL -->
+    <rect x="300" width="90" height="55" rx="6" fill="#020617" stroke="#1e293b"/>
+    <text x="345" y="24" fill="#38bdf8" font-size="16" text-anchor="middle">🔗</text>
+    <text x="345" y="44" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">URL Link</text>
+
+    <!-- AWS -->
+    <rect x="400" width="90" height="55" rx="6" fill="#020617" stroke="#1e293b"/>
+    <text x="445" y="24" fill="#fbbf24" font-size="16" text-anchor="middle">🔑</text>
+    <text x="445" y="44" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">AWS Keys</text>
+
+    <!-- Folder -->
+    <rect x="500" width="90" height="55" rx="6" fill="#020617" stroke="#1e293b"/>
+    <text x="545" y="24" fill="#a78bfa" font-size="16" text-anchor="middle">📁</text>
+    <text x="545" y="44" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">desktop.ini</text>
+
+    <!-- QR -->
+    <rect x="600" width="80" height="55" rx="6" fill="#020617" stroke="#1e293b"/>
+    <text x="640" y="24" fill="#22d3ee" font-size="16" text-anchor="middle">📱</text>
+    <text x="640" y="44" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">QR Trap</text>
+  </g>
+
+  <!-- Inputs preview inside generator -->
+  <g transform="translate(44, 235)">
+    <rect width="320" height="34" rx="6" fill="#020617" stroke="#334155"/>
+    <text x="12" y="21" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="11">Salarios_Confidencial_2026.docx</text>
+    
+    <rect x="330" width="220" height="34" rx="6" fill="#020617" stroke="#334155"/>
+    <text x="342" y="21" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">tu-correo@empresa.com</text>
+
+    <rect x="560" width="120" height="34" rx="6" fill="#e11d48"/>
+    <text x="620" y="21" fill="#ffffff" font-family="system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">Crear Cebo</text>
+  </g>
+
+  <text x="44" y="318" fill="#64748b" font-family="system-ui, sans-serif" font-size="11">🛡️ Mecanismo: Inyecta relación externa OpenXML (AttachedTemplate) sin macros ni avisos de seguridad.</text>
+
+  <!-- Active Tokens List (Table) -->
+  <rect x="24" y="350" width="720" height="305" rx="10" fill="url(#panelGrad)" stroke="#1e293b" stroke-width="1"/>
+  <text x="44" y="377" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Trampas Desplegadas en el Entorno</text>
+  <text x="670" y="377" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="11">4 ACTIVAS</text>
+
+  <!-- Table row 1 -->
+  <g transform="translate(44, 395)">
+    <rect width="680" height="52" rx="6" fill="#020617" stroke="#1e293b"/>
+    <circle cx="20" cy="26" r="4" fill="#10b981"/>
+    <text x="35" y="23" fill="#f8fafc" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600">passwords_vpn_contabilidad.docx</text>
+    <text x="35" y="39" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">Ubicación: Servidor NAS Compartido Contabilidad • ID: tk_wrd_89ab</text>
+    
+    <rect x="420" y="14" width="75" height="24" rx="4" fill="#064e3b"/>
+    <text x="457" y="30" fill="#6ee7b7" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="bold" text-anchor="middle">ARMADA</text>
+
+    <rect x="505" y="14" width="80" height="24" rx="4" fill="#1e293b"/>
+    <text x="545" y="30" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">📥 Descargar</text>
+
+    <rect x="595" y="14" width="75" height="24" rx="4" fill="#3f121d" stroke="#f43f5e" stroke-width="0.5"/>
+    <text x="632" y="30" fill="#fda4af" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">⚡ Probar</text>
+  </g>
+
+  <!-- Table row 2 (TRIGGERED) -->
+  <g transform="translate(44, 455)">
+    <rect width="680" height="52" rx="6" fill="#1c0a0f" stroke="#ef4444" stroke-width="1"/>
+    <circle cx="20" cy="26" r="4" fill="#ef4444"/>
+    <text x="35" y="23" fill="#fecaca" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold">aws_credentials_backup.env</text>
+    <text x="35" y="39" fill="#fda4af" font-family="system-ui, sans-serif" font-size="10">Ubicación: Repositorio GitHub Privado • ¡DISPARADA 2 VECES!</text>
+    
+    <rect x="420" y="14" width="75" height="24" rx="4" fill="#450a0a"/>
+    <text x="457" y="30" fill="#fca5a5" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="bold" text-anchor="middle">⚠️ CAZADA</text>
+
+    <rect x="505" y="14" width="80" height="24" rx="4" fill="#1e293b"/>
+    <text x="545" y="30" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">📥 Descargar</text>
+
+    <rect x="595" y="14" width="75" height="24" rx="4" fill="#1e293b"/>
+    <text x="632" y="30" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">🔍 Forense</text>
+  </g>
+
+  <!-- Table row 3 -->
+  <g transform="translate(44, 515)">
+    <rect width="680" height="52" rx="6" fill="#020617" stroke="#1e293b"/>
+    <circle cx="20" cy="26" r="4" fill="#10b981"/>
+    <text x="35" y="23" fill="#f8fafc" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600">plano_arquitectura_cloud.pdf</text>
+    <text x="35" y="39" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">Ubicación: Escritorio Laptop Director • ID: tk_pdf_77df</text>
+    
+    <rect x="420" y="14" width="75" height="24" rx="4" fill="#064e3b"/>
+    <text x="457" y="30" fill="#6ee7b7" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="bold" text-anchor="middle">ARMADA</text>
+
+    <rect x="505" y="14" width="80" height="24" rx="4" fill="#1e293b"/>
+    <text x="545" y="30" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">📥 Descargar</text>
+
+    <rect x="595" y="14" width="75" height="24" rx="4" fill="#3f121d"/>
+    <text x="632" y="30" fill="#fda4af" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">⚡ Probar</text>
+  </g>
+
+  <!-- Table row 4 -->
+  <g transform="translate(44, 575)">
+    <rect width="680" height="52" rx="6" fill="#020617" stroke="#1e293b"/>
+    <circle cx="20" cy="26" r="4" fill="#10b981"/>
+    <text x="35" y="23" fill="#f8fafc" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600">nomina_directiva_2026.xlsx</text>
+    <text x="35" y="39" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">Ubicación: Carpeta SharePoint RRHH • ID: tk_xls_33fe</text>
+    
+    <rect x="420" y="14" width="75" height="24" rx="4" fill="#064e3b"/>
+    <text x="457" y="30" fill="#6ee7b7" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="bold" text-anchor="middle">ARMADA</text>
+
+    <rect x="505" y="14" width="80" height="24" rx="4" fill="#1e293b"/>
+    <text x="545" y="30" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">📥 Descargar</text>
+
+    <rect x="595" y="14" width="75" height="24" rx="4" fill="#3f121d"/>
+    <text x="632" y="30" fill="#fda4af" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">⚡ Probar</text>
+  </g>
+
+
+  <!-- RIGHT COLUMN: Live Radar & Intrusion Feed (width: 420) -->
+  <rect x="760" y="105" width="415" height="550" rx="10" fill="url(#panelGrad)" stroke="#1e293b" stroke-width="1"/>
+  
+  <!-- Radar Header -->
+  <rect x="760" y="105" width="415" height="50" rx="10" fill="#0b1120" stroke="#1e293b"/>
+  <circle cx="785" cy="130" r="5" fill="#f43f5e"/>
+  <text x="800" y="135" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Radar Forense en Vivo (SSE)</text>
+  <text x="1140" y="135" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="end">STREAMING</text>
+
+  <!-- Intrusion Alert Card 1 (CRITICAL) -->
+  <g transform="translate(775, 170)">
+    <rect width="385" height="135" rx="8" fill="#1c0a0f" stroke="#e11d48" stroke-width="1.5"/>
+    <rect x="12" y="12" width="60" height="20" rx="4" fill="#450a0a"/>
+    <text x="42" y="26" fill="#fca5a5" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="bold" text-anchor="middle">¡ALERTA!</text>
+    <text x="80" y="26" fill="#f43f5e" font-family="system-ui, sans-serif" font-size="12" font-weight="bold">Intrusión Detectada en Token</text>
+    <text x="370" y="25" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="end">Hace 42s</text>
+
+    <!-- Alert details table -->
+    <text x="15" y="55" fill="#e2e8f0" font-family="'JetBrains Mono', monospace" font-size="11">Cebo: <tspan fill="#fecaca" font-weight="bold">aws_credentials_backup.env</tspan></text>
+    <text x="15" y="73" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="11">IP Origen: <tspan fill="#38bdf8">185.220.101.45</tspan> (Tor Exit Node)</text>
+    <text x="15" y="91" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="11">Ubicación: <tspan fill="#fbbf24">Frankfurt, Alemania</tspan></text>
+    <text x="15" y="109" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">User-Agent: python-requests/2.31.0 (AWS CLI fake probe)</text>
+
+    <!-- MITRE Pill -->
+    <rect x="15" y="115" width="130" height="15" rx="3" fill="#312e81"/>
+    <text x="80" y="126" fill="#c7d2fe" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">MITRE T1552.001</text>
+  </g>
+
+  <!-- Intrusion Alert Card 2 -->
+  <g transform="translate(775, 320)">
+    <rect width="385" height="120" rx="8" fill="#020617" stroke="#334155"/>
+    <rect x="12" y="12" width="60" height="20" rx="4" fill="#1e293b"/>
+    <text x="42" y="26" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="middle">AVISO</text>
+    <text x="80" y="26" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Apertura de Documento</text>
+    <text x="370" y="25" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="end">Hace 14m</text>
+
+    <text x="15" y="55" fill="#e2e8f0" font-family="'JetBrains Mono', monospace" font-size="11">Cebo: <tspan fill="#93c5fd">nominas_directivos.docx</tspan></text>
+    <text x="15" y="73" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="11">IP Origen: <tspan fill="#38bdf8">91.121.88.12</tspan> (OVH SAS)</text>
+    <text x="15" y="91" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">User-Agent: Microsoft Office Word 2021</text>
+    <text x="15" y="105" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="10">✓ Alerta enviada a: admin-soc@empresa.com</text>
+  </g>
+
+  <!-- Notification Banner / Push status -->
+  <g transform="translate(775, 460)">
+    <rect width="385" height="75" rx="8" fill="#042f2e" stroke="#10b981" stroke-width="1"/>
+    <text x="15" y="25" fill="#34d399" font-family="system-ui, sans-serif" font-size="12" font-weight="bold">🔔 Notificaciones Web Push de Escritorio Activas</text>
+    <text x="15" y="44" fill="#a7f3d0" font-family="system-ui, sans-serif" font-size="11">Recibirás un pop-up nativo en tu pantalla incluso si minimizas el navegador o bloqueas el equipo.</text>
+    <text x="15" y="62" fill="#6ee7b7" font-family="'JetBrains Mono', monospace" font-size="10">Service Worker v2.1 • Background Sync Ready</text>
+  </g>
+
+  <!-- Quick Sim buttons at bottom of radar -->
+  <g transform="translate(775, 550)">
+    <rect width="185" height="35" rx="6" fill="#1e293b" stroke="#334155"/>
+    <text x="92" y="22" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11" font-weight="600" text-anchor="middle">🧪 Simular Ataque Cebo</text>
+
+    <rect x="200" width="185" height="35" rx="6" fill="#1e293b" stroke="#334155"/>
+    <text x="292" y="22" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11" font-weight="600" text-anchor="middle">🔬 Desensamblar Paquete</text>
+  </g>
+
+  <g transform="translate(775, 595)">
+    <rect width="385" height="45" rx="6" fill="#0b1120" stroke="#1e293b"/>
+    <text x="15" y="20" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Estadística Deception: <tspan fill="#10b981" font-weight="bold">100% Fidelidad</tspan> (0 Falsos Positivos)</text>
+    <text x="15" y="36" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="10">MTTD medio: 12 seg (frente a 204 días del SIEM tradicional)</text>
+  </g>
+</svg>

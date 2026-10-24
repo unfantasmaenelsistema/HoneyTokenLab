@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" width="100%" height="100%">
+  <defs>
+    <linearGradient id="sheetBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <rect width="1000" height="620" fill="#020617"/>
+
+  <!-- Centered White PDF Sheet with shadow -->
+  <g transform="translate(140, 20)" filter="url(#shadow)">
+    <rect width="720" height="575" rx="4" fill="url(#sheetBg)" stroke="#cbd5e1" stroke-width="1"/>
+
+    <!-- PDF Header Strip -->
+    <rect width="720" height="8" rx="2" fill="#e11d48"/>
+
+    <!-- Report Title Header -->
+    <g transform="translate(40, 35)">
+      <text y="0" fill="#0f172a" font-family="'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="bold">INFORME FORENSE DE INCIDENTE &amp; DECEPTION</text>
+      <text y="18" fill="#e11d48" font-family="'Courier New', monospace" font-size="11" font-weight="bold">HONEYTOKEN DECEPTION LAB • UN FANTASMA EN EL SISTEMA</text>
+      <text y="34" fill="#64748b" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10">Generado el 23 de Octubre de 2026 | Clasificación: CONFIDENCIAL / TLP:AMBER</text>
+      <line x1="0" y1="42" x2="640" y2="42" stroke="#e2e8f0" stroke-width="1.5"/>
+    </g>
+
+    <!-- Executive Summary Box -->
+    <g transform="translate(40, 95)">
+      <rect width="640" height="75" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+      <text x="15" y="22" fill="#0f172a" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="bold">RESUMEN EJECUTIVO DE DETECCIÓN Y RESPUESTA</text>
+      <text x="15" y="40" fill="#334155" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10">El sistema de engaño activo interceptó 3 intentos de exfiltración e interacción no autorizada con</text>
+      <text x="15" y="55" fill="#334155" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10">archivos cebo tipo canary. MTTD registrado: 8.4 segundos. 0% Falsos Positivos.</text>
+    </g>
+
+    <!-- 2 High-Res Embedded Charts Visualization -->
+    <!-- Left Chart: Donut Chart -->
+    <g transform="translate(50, 185)">
+      <rect width="300" height="150" rx="4" fill="#ffffff" stroke="#e2e8f0"/>
+      <text x="15" y="20" fill="#0f172a" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="bold">Distribución de Estados de Tokens</text>
+      
+      <!-- Donut mockup -->
+      <g transform="translate(75, 85)">
+        <circle cx="0" cy="0" r="42" fill="none" stroke="#10b981" stroke-width="20" stroke-dasharray="190, 80"/>
+        <circle cx="0" cy="0" r="42" fill="none" stroke="#ef4444" stroke-width="20" stroke-dasharray="74, 200" stroke-dashoffset="-190"/>
+        <text x="0" y="4" fill="#0f172a" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">4 CTI</text>
+      </g>
+
+      <!-- Legend -->
+      <circle cx="165" cy="65" r="5" fill="#10b981"/>
+      <text x="178" y="69" fill="#334155" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9">75% Armados / Activos (3)</text>
+
+      <circle cx="165" cy="95" r="5" fill="#ef4444"/>
+      <text x="178" y="99" fill="#334155" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9">25% Disparados (1)</text>
+
+      <text x="178" y="125" fill="#64748b" font-family="'Courier New', monospace" font-size="8">Fidelidad: 100%</text>
+    </g>
+
+    <!-- Right Chart: Horizontal Bar Chart -->
+    <g transform="translate(370, 185)">
+      <rect width="310" height="150" rx="4" fill="#ffffff" stroke="#e2e8f0"/>
+      <text x="15" y="20" fill="#0f172a" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="bold">Tokens Desplegados por Vector</text>
+
+      <!-- Bars -->
+      <g transform="translate(15, 38)" font-family="'Courier New', monospace" font-size="9">
+        <text y="14" fill="#334155">Word .docx</text>
+        <rect x="80" y="5" width="120" height="12" rx="2" fill="#38bdf8"/>
+        <text x="208" y="15" fill="#64748b">1 cebo</text>
+
+        <text y="38" fill="#334155">Excel .xlsx</text>
+        <rect x="80" y="29" width="120" height="12" rx="2" fill="#34d399"/>
+        <text x="208" y="39" fill="#64748b">1 cebo</text>
+
+        <text y="62" fill="#334155">Adobe .pdf</text>
+        <rect x="80" y="53" width="120" height="12" rx="2" fill="#f43f5e"/>
+        <text x="208" y="63" fill="#64748b">1 cebo</text>
+
+        <text y="86" fill="#334155">AWS Api Key</text>
+        <rect x="80" y="77" width="120" height="12" rx="2" fill="#fbbf24"/>
+        <text x="208" y="87" fill="#64748b">1 cebo</text>
+      </g>
+    </g>
+
+    <!-- AutoTable of forensic intrusions -->
+    <g transform="translate(40, 350)">
+      <text y="0" fill="#0f172a" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="bold">REGISTRO CRONOLÓGICO DE INTRUSIONES DETECTADAS</text>
+
+      <!-- Table header -->
+      <rect y="10" width="640" height="22" fill="#0f172a"/>
+      <text x="10" y="24" fill="#ffffff" font-family="'Courier New', monospace" font-size="9" font-weight="bold">FECHA / HORA</text>
+      <text x="140" y="24" fill="#ffffff" font-family="'Courier New', monospace" font-size="9" font-weight="bold">TOKEN / TIPO</text>
+      <text x="280" y="24" fill="#ffffff" font-family="'Courier New', monospace" font-size="9" font-weight="bold">IP ORIGEN / ISP</text>
+      <text x="440" y="24" fill="#ffffff" font-family="'Courier New', monospace" font-size="9" font-weight="bold">USER-AGENT / CLIENTE</text>
+      <text x="575" y="24" fill="#ffffff" font-family="'Courier New', monospace" font-size="9" font-weight="bold">MITRE ATT&amp;CK</text>
+
+      <!-- Row 1 -->
+      <rect y="32" width="640" height="24" fill="#ffe4e6"/>
+      <text x="10" y="47" fill="#9f1239" font-family="'Courier New', monospace" font-size="8">2026-10-23 15:42</text>
+      <text x="140" y="47" fill="#9f1239" font-family="'Courier New', monospace" font-size="8">aws_credentials.env</text>
+      <text x="280" y="47" fill="#9f1239" font-family="'Courier New', monospace" font-size="8">185.220.101.45 (Tor)</text>
+      <text x="440" y="47" fill="#9f1239" font-family="'Courier New', monospace" font-size="8">python-requests/2.31</text>
+      <text x="575" y="47" fill="#9f1239" font-family="'Courier New', monospace" font-size="8" font-weight="bold">T1552.001</text>
+
+      <!-- Row 2 -->
+      <rect y="56" width="640" height="24" fill="#f8fafc"/>
+      <text x="10" y="71" fill="#334155" font-family="'Courier New', monospace" font-size="8">2026-10-23 14:18</text>
+      <text x="140" y="71" fill="#334155" font-family="'Courier New', monospace" font-size="8">nominas_rrhh.docx</text>
+      <text x="280" y="71" fill="#334155" font-family="'Courier New', monospace" font-size="8">91.121.88.12 (OVH)</text>
+      <text x="440" y="71" fill="#334155" font-family="'Courier New', monospace" font-size="8">Microsoft Office Word</text>
+      <text x="575" y="71" fill="#334155" font-family="'Courier New', monospace" font-size="8" font-weight="bold">T1204.002</text>
+    </g>
+
+    <!-- PDF Footer -->
+    <g transform="translate(40, 545)">
+      <line x1="0" y1="0" x2="640" y2="0" stroke="#e2e8f0" stroke-width="1"/>
+      <text y="14" fill="#94a3b8" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9">Documento firmado criptográficamente • SHA-256 Verificado • https://www.unfantasmaenelsistema.com/</text>
+      <text x="640" y="14" fill="#94a3b8" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9" text-anchor="end">Página 1 de 1</text>
+    </g>
+  </g>
+</svg>
