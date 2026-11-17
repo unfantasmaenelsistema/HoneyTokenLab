@@ -38,7 +38,7 @@ Un honeytoken es un recurso falso (un documento, un enlace, unas credenciales) q
 
 - **Receptor propio**: pegas la URL de tu receptor y, si quieres, se le añade `?ht=<identificador>&a=<tipo>` para saber qué trampa ha saltado. Hay un botón para probar que tu receptor la registra.
 - **8 trampas**: Word (`.docx`), Excel (`.xlsx`), enlace, código QR (con pegatina imprimible), PDF, `.env` con credenciales señuelo, volcado SQL y carpeta de Windows (`desktop.ini` con su script de PowerShell para poner los atributos). Cada una muestra su **fiabilidad**, cuándo salta, cuándo no y cómo se comprobó.
-- **Mis trampas**: inventario en este navegador con el identificador, la URL de aviso y dónde la dejaste. Se puede volver a descargar la misma trampa, exportar a JSON o CSV e importar.
+- **Mis trampas**: inventario en este navegador con el identificador, la URL de aviso y dónde la dejaste. Se puede volver a descargar la misma trampa (también el PNG del QR), exportar a JSON o CSV e importar.
 - **Cuándo salta**: guía trampa por trampa, avisos que no son un intruso (vistas previas de enlaces, antivirus del correo, indexadores…), buenas prácticas y qué comportamientos de MITRE ATT&CK pueden delatar.
 - **Simulador**: elige una trampa y una situación («se abre en Vista protegida», «pulsa Habilitar edición»…) y mira si saltaría y qué vería el receptor. Todo va marcado como **simulado** y usa IP de documentación (RFC 5737).
 
@@ -86,13 +86,15 @@ git clone https://github.com/unfantasmaenelsistema/HoneyTokenLab.git
 cd HoneyTokenLab
 npm ci
 npm run dev      # http://localhost:5181
-npm test         # 17 pruebas del núcleo (node --test, sin navegador)
+npm test         # 18 pruebas del núcleo (node --test, sin navegador)
 npm run build    # tipos + build estática en dist/
 ```
 
 Necesitas Node.js 22 o superior. La lógica está en `src/lib/` sin DOM (`traps.ts` genera los archivos, `simulation.ts` el simulador, `store.ts` el inventario) y es lo que cubren las pruebas; `src/components/` es la interfaz (React + Tailwind). Cada cambio en `main` se prueba y se publica en GitHub Pages con `.github/workflows/pages.yml`.
 
 ## Cambios
+
+**v2.1 (2026-11-17)** — cada trampa trae su propio título señuelo (el Excel de salarios ya no lleva el título del Word) y el campo «¿Dónde la vas a dejar?» se vacía al cambiar de tipo y tras generar, para que el inventario no apunte ubicaciones que no son. Desde «Mis trampas» se puede volver a descargar el PNG del código QR.
 
 **v2.0 (2026-10-24)** — rehecha al pasar a la organización. La v1 era una app de AI Studio que necesitaba un servidor Express y no podía funcionar en GitHub Pages. Además:
 

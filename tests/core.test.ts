@@ -120,6 +120,14 @@ test('cada tipo tiene ficha, escenarios y una comprobación descrita', async () 
   }
 });
 
+test('solo Word, Excel y PDF llevan título, y cada uno el suyo (no el del Word)', () => {
+  const withTitle = (Object.keys(T.TRAP_INFO) as T.TrapType[]).filter((t) => T.TRAP_INFO[t].defaultTitle);
+  assert.deepEqual(withTitle.sort(), ['docx', 'pdf', 'xlsx']);
+  const titles = withTitle.map((t) => T.TRAP_INFO[t].defaultTitle);
+  assert.equal(new Set(titles).size, titles.length, 'títulos distintos');
+  assert.match(T.TRAP_INFO.xlsx.defaultTitle, /retribuci/i, 'el Excel de salarios habla de retribuciones');
+});
+
 test('el simulador es coherente con lo medido: desktop.ini nunca salta y la Vista protegida tampoco', () => {
   assert.ok(Sim.SCENARIOS.desktop_ini.every((s) => !s.fires));
   assert.equal(Sim.SCENARIOS.docx.find((s) => s.id === 'protected')!.fires, false);
