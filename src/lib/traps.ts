@@ -361,6 +361,8 @@ export interface TrapInfo {
   label: string;
   ext: string;
   defaultName: string;
+  /** Título que se ve dentro del señuelo (solo Word, Excel y PDF); coherente con el nombre del archivo. */
+  defaultTitle: string;
   how: string;
   fires: string[];
   doesNotFire: string[];
@@ -371,56 +373,56 @@ export interface TrapInfo {
 
 export const TRAP_INFO: Record<TrapType, TrapInfo> = {
   url: {
-    label: 'Enlace (URL)', ext: '', defaultName: 'enlace',
+    label: 'Enlace (URL)', ext: '', defaultName: 'enlace', defaultTitle: '',
     how: 'La propia URL del receptor, para pegarla en una wiki, un correo, un gestor de contraseñas o un fichero de notas.',
     fires: ['Cuando alguien la abre en un navegador o la pide con curl, wget o un script.'],
     doesNotFire: ['Si nadie la abre: el enlace no hace nada por sí solo.', 'Las vistas previas de enlaces de algunos chats (Slack, Teams, WhatsApp) la piden solas: dan avisos que no son de un intruso.'],
     reliability: 'alta', verified: 'Es una petición HTTP normal: la registra cualquier receptor.',
   },
   qr: {
-    label: 'Código QR', ext: 'png', defaultName: 'wifi-invitados',
+    label: 'Código QR', ext: 'png', defaultName: 'wifi-invitados', defaultTitle: '',
     how: 'Un QR con la URL del receptor, para imprimir (pegatina en un rack, una nota con «Wi-Fi invitados»…).',
     fires: ['Cuando alguien lo escanea y abre el enlace en el móvil.'],
     doesNotFire: ['Si lo escanean sin abrir el enlace (la mayoría de lectores preguntan antes).'],
     reliability: 'alta', verified: 'Las pruebas decodifican el QR generado y comprueban que contiene exactamente la URL.',
   },
   docx: {
-    label: 'Documento Word', ext: 'docx', defaultName: 'claves_vpn_produccion',
+    label: 'Documento Word', ext: 'docx', defaultName: 'claves_vpn_produccion', defaultTitle: 'Accesos VPN y credenciales de producción',
     how: 'Un .docx con una imagen enlazada (no incrustada) que Word descarga de tu URL al mostrar el documento. Sin macros.',
     fires: ['Al abrirlo en Microsoft Word para Windows o Mac si el archivo no viene de Internet (copiado en un recurso compartido, un USB o un disco).', 'Al pulsar «Habilitar edición» si se abrió en Vista protegida.'],
     doesNotFire: ['En Vista protegida (archivos descargados o adjuntos de correo con la marca de Internet) hasta que se habilita la edición.', 'En Word para la web, en el visor de Google Drive o en vistas previas del Explorador.', 'Si la organización bloquea el contenido externo en Office o no hay salida a Internet.'],
     reliability: 'media', verified: 'Microsoft Word (Microsoft 365, versión 16) en Windows 11 25H2: archivo local → pide la URL al abrir; mismo archivo con marca de Internet → Vista protegida, no pide nada; al pulsar «Habilitar edición» → pide la URL. Agente de usuario recibido: «Mozilla/4.0 (compatible; ms-office; MSOffice 16)».',
   },
   xlsx: {
-    label: 'Hoja de Excel', ext: 'xlsx', defaultName: 'salarios_direccion_2026',
+    label: 'Hoja de Excel', ext: 'xlsx', defaultName: 'salarios_direccion_2026', defaultTitle: 'Retribuciones de dirección 2026',
     how: 'Un .xlsx con una imagen enlazada en la hoja, la misma idea que el Word.',
     fires: ['Al abrirlo en Microsoft Excel si el archivo no viene de Internet, o al habilitar la edición.'],
     doesNotFire: ['En Vista protegida, en Excel para la web, LibreOffice con la configuración por defecto o vistas previas.'],
     reliability: 'media', verified: 'Microsoft Excel (Microsoft 365) en Windows 11 25H2, mismos tres casos que Word y mismo resultado: local sí, Vista protegida no, «Habilitar edición» sí.',
   },
   pdf: {
-    label: 'PDF', ext: 'pdf', defaultName: 'informe_auditoria_confidencial',
+    label: 'PDF', ext: 'pdf', defaultName: 'informe_auditoria_confidencial', defaultTitle: 'Informe de auditoría de seguridad 2026',
     how: 'Un PDF que al abrirse pide abrir tu URL (/OpenAction) y un enlace visible de «validar acceso».',
     fires: ['En Adobe Acrobat/Reader o Foxit, solo si el usuario acepta el aviso de «este documento intenta conectarse a…».', 'Si alguien pulsa el enlace del documento.'],
     doesNotFire: ['En el visor de PDF de Chrome, Edge o Firefox: ignoran la acción al abrir.', 'Si el usuario rechaza el aviso de seguridad (lo normal en alguien desconfiado).'],
     reliability: 'baja', verified: 'Estructura validada con pypdf en modo estricto. Abierto en Microsoft Edge y Google Chrome: lo muestran y no piden la URL. No probado en Acrobat ni Foxit (no estaban instalados en el equipo de pruebas).',
   },
   env: {
-    label: 'Fichero .env', ext: 'env', defaultName: 'produccion',
+    label: 'Fichero .env', ext: 'env', defaultName: 'produccion', defaultTitle: '',
     how: 'Un .env con credenciales señuelo y tu URL como «panel de administración» o «API de copias». Los navegadores no descargan archivos que empiezan por punto: llega como produccion.env y lo renombras a .env al dejarlo en su sitio.',
     fires: ['Si alguien usa la URL que contiene (la abre o la prueba con una herramienta).'],
     doesNotFire: ['Al abrir o copiar el fichero: es texto, no ejecuta nada.', 'Las claves AWS señuelo no avisan de nada: para eso hace falta una clave de un usuario IAM real vigilado con CloudTrail (canarytokens.org lo ofrece).'],
     reliability: 'baja', verified: 'Es texto plano: no hay nada que «abrir». Solo avisa si alguien usa la URL.',
   },
   sql: {
-    label: 'Volcado SQL', ext: 'sql', defaultName: 'backup_intranet',
+    label: 'Volcado SQL', ext: 'sql', defaultName: 'backup_intranet', defaultTitle: '',
     how: 'Un volcado de MySQL con una tabla de administradores y tu URL como «URL de recuperación».',
     fires: ['Si alguien abre la URL que aparece en el volcado.'],
     doesNotFire: ['Al importarlo en una base de datos: MySQL no pide URL guardadas en columnas.'],
     reliability: 'baja', verified: 'Importado en MariaDB 11 sin errores; la URL queda en la tabla admin_users.',
   },
   desktop_ini: {
-    label: 'Carpeta de Windows (desktop.ini)', ext: 'ini', defaultName: 'Nominas_2026',
+    label: 'Carpeta de Windows (desktop.ini)', ext: 'ini', defaultName: 'Nominas_2026', defaultTitle: '',
     how: 'Un desktop.ini que pone a la carpeta un icono alojado en una ruta de red (UNC) hacia tu receptor. Es una técnica conocida (la usa canarytokens.org, que avisa por la consulta DNS del nombre del servidor). Chrome y Edge lo descargan como _desktop.ini; el script de preparación lo renombra.',
     fires: ['En teoría, al mostrar la carpeta en el Explorador: Windows intenta leer el icono por SMB o WebDAV (servicio WebClient). Necesita un receptor que registre peticiones WebDAV (OPTIONS, PROPFIND) o consultas DNS.'],
     doesNotFire: ['En nuestra prueba con Windows 11 25H2 no saltó: ni el Explorador ni la API del shell hicieron ninguna petición, ni siquiera DNS.', 'Si la carpeta no tiene atributo de solo lectura o sistema, o el desktop.ini no es oculto+sistema (el script que se descarga lo deja bien).', 'Si el servicio WebClient está desactivado, se bloquea la salida o en Linux y macOS.', 'Con receptores que solo registran GET.'],

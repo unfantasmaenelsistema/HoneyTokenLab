@@ -9,6 +9,16 @@ const PRESETS = [
   { title: 'Restablecer 2FA', subtitle: 'Solo personal de IT' },
 ];
 
+const QR_OPTIONS = { width: 600, margin: 2, errorCorrectionLevel: 'M', color: { dark: '#0f172a', light: '#ffffff' } } as const;
+
+/** PNG del QR (los mismos parámetros que la pegatina), para descargarlo otra vez desde «Mis trampas». */
+export async function qrPngBytes(url: string): Promise<Uint8Array> {
+  const dataUrl = await QRCode.toDataURL(url, QR_OPTIONS);
+  // Sin fetch(data:): la CSP (connect-src 'self') lo bloquearía.
+  const bin = atob(dataUrl.split(',')[1]);
+  return Uint8Array.from(bin, (c) => c.charCodeAt(0));
+}
+
 export function QrSticker({ url, filename }: { url: string; filename: string }) {
   const [dataUrl, setDataUrl] = useState('');
   const [title, setTitle] = useState(PRESETS[0].title);
@@ -16,7 +26,7 @@ export function QrSticker({ url, filename }: { url: string; filename: string }) 
 
   useEffect(() => {
     let alive = true;
-    QRCode.toDataURL(url, { width: 600, margin: 2, errorCorrectionLevel: 'M', color: { dark: '#0f172a', light: '#ffffff' } })
+    QRCode.toDataURL(url, QR_OPTIONS)
       .then((d) => { if (alive) setDataUrl(d); });
     return () => { alive = false; };
   }, [url]);

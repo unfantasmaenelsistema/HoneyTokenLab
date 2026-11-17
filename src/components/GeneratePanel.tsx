@@ -18,7 +18,7 @@ interface Props {
 export function GeneratePanel({ settings, onCreated, onError, onOpenGuide }: Props) {
   const [type, setType] = useState<TrapType>('docx');
   const [filename, setFilename] = useState(TRAP_INFO.docx.defaultName);
-  const [title, setTitle] = useState('Accesos VPN y credenciales de producción');
+  const [title, setTitle] = useState(TRAP_INFO.docx.defaultTitle);
   const [placement, setPlacement] = useState('');
   const [result, setResult] = useState<{ trap: SavedTrap; generated: GeneratedTrap; folder: string } | null>(null);
   const [busy, setBusy] = useState(false);
@@ -29,6 +29,10 @@ export function GeneratePanel({ settings, onCreated, onError, onOpenGuide }: Pro
   const pick = (t: TrapType) => {
     setType(t);
     setFilename(TRAP_INFO[t].defaultName);
+    // Cada trampa con su título y sin la ubicación de la anterior: si no, el Excel de salarios
+    // llevaría el título del Word y el inventario apuntaría ubicaciones que no son.
+    setTitle(TRAP_INFO[t].defaultTitle);
+    setPlacement('');
     setResult(null);
   };
 
@@ -40,11 +44,12 @@ export function GeneratePanel({ settings, onCreated, onError, onOpenGuide }: Pro
       const g = await buildTrap(type, { receiverUrl: settings.receiverUrl, tokenId: id, tagUrl: settings.tagUrl, decoyTitle: title.trim() || 'Documento confidencial' }, filename);
       if (type !== 'url' && type !== 'qr') downloadFile(g.filename, g.data, g.mime);
       const trap: SavedTrap = {
-        id, type, filename: type === 'url' ? 'enlace' : g.filename, decoyTitle: title.trim(), beaconUrl: g.beaconUrl,
+        id, type, filename: type === 'url' ? 'enlace' : g.filename, decoyTitle: TRAP_INFO[type].defaultTitle ? title.trim() : '', beaconUrl: g.beaconUrl,
         receiverUrl: settings.receiverUrl, tagUrl: settings.tagUrl, createdAt: new Date().toISOString(), placement: placement.trim(),
       };
       setResult({ trap, generated: g, folder: filename.trim() || TRAP_INFO.desktop_ini.defaultName });
       onCreated(trap);
+      setPlacement(''); // cada trampa va en un sitio distinto: no arrastrar la ubicación a la siguiente
     } catch (e) {
       onError(e instanceof Error ? e.message : 'No se pudo generar la trampa');
     } finally {

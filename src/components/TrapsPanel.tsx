@@ -4,6 +4,7 @@ import * as store from '../lib/store.ts';
 import { TRAP_INFO, buildTrap } from '../lib/traps.ts';
 import { downloadFile } from '../lib/download.ts';
 import { ReliabilityBadge } from './ReliabilityBadge.tsx';
+import { qrPngBytes } from './QrSticker.tsx';
 import type { ToastKind } from './Toasts.tsx';
 
 interface Props {
@@ -20,9 +21,14 @@ export function TrapsPanel({ traps, onChange, notify, onGoGenerate, onGoSimulate
   const [draft, setDraft] = useState('');
 
   const redownload = async (t: store.SavedTrap) => {
-    if (t.type === 'url' || t.type === 'qr') {
+    if (t.type === 'url') {
       await navigator.clipboard?.writeText(t.beaconUrl).catch(() => {});
       return notify('URL copiada al portapapeles', 'success');
+    }
+    if (t.type === 'qr') {
+      // El mismo QR (misma URL): se puede volver a imprimir sin crear otra trampa.
+      downloadFile(t.filename.endsWith('.png') ? t.filename : `${t.filename}.png`, await qrPngBytes(t.beaconUrl), 'image/png');
+      return;
     }
     // Misma URL y mismo identificador: es la misma trampa, no una nueva.
     const g = await buildTrap(t.type, { receiverUrl: t.receiverUrl, tokenId: t.id, tagUrl: t.tagUrl, decoyTitle: t.decoyTitle || 'Documento confidencial' }, t.filename);
@@ -90,8 +96,8 @@ export function TrapsPanel({ traps, onChange, notify, onGoGenerate, onGoSimulate
                   <strong className="font-mono text-sm break-all">{t.filename}</strong>
                 </div>
                 <div className="flex gap-1.5">
-                  <button type="button" onClick={() => redownload(t)} title={t.type === 'url' || t.type === 'qr' ? 'Copiar URL' : 'Volver a descargar (misma trampa)'} aria-label={`Volver a descargar ${t.filename}`} className="rounded border border-slate-700 p-1.5 hover:border-emerald-500/60">
-                    {t.type === 'url' || t.type === 'qr' ? <RotateCcw className="w-4 h-4" /> : <Download className="w-4 h-4" />}
+                  <button type="button" onClick={() => redownload(t)} title={t.type === 'url' ? 'Copiar URL' : t.type === 'qr' ? 'Volver a descargar el PNG del QR (misma trampa)' : 'Volver a descargar (misma trampa)'} aria-label={t.type === 'url' ? `Copiar la URL de ${t.filename}` : `Volver a descargar ${t.filename}`} className="rounded border border-slate-700 p-1.5 hover:border-emerald-500/60">
+                    {t.type === 'url' ? <RotateCcw className="w-4 h-4" /> : <Download className="w-4 h-4" />}
                   </button>
                   <button type="button" onClick={() => remove(t)} aria-label={`Quitar ${t.filename} del inventario`} className="rounded border border-slate-700 p-1.5 hover:border-rose-500/60">
                     <Trash2 className="w-4 h-4" />

@@ -1,6 +1,6 @@
 {
   "name": "honeytokenlab",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
   "description": "Laboratorio de honeytokens en el navegador: genera trampas que avisan a la URL que tú elijas y explica cuándo saltan de verdad",
   "license": "MIT",
